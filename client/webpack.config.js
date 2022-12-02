@@ -22,6 +22,7 @@ module.exports = () => {
         template: './index.html',
         title: 'J.A.T.E'
       }),
+      new GenerateSW(),
     ],
 
     module: {
