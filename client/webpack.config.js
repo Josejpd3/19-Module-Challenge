@@ -23,6 +23,22 @@ module.exports = () => {
         title: 'J.A.T.E'
       }),
       new GenerateSW(),
+      new WebpackPwaManifest({
+        name: 'J.A.T.E Editor',
+        short_name: 'jate',
+        description: 'My awesome editor App!',
+        background_color: '#ffffff',
+        start_url: './',
+        publicPath: './',
+        crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+        icons: [
+          {
+            src: path.resolve('./src/images/logo.png'),
+            size: '1024x1024',
+            destination: path.join('src', 'icons')
+          }
+        ]
+      }),
     ],
 
     module: {
