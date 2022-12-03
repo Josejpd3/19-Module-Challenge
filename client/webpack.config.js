@@ -22,8 +22,12 @@ module.exports = () => {
         template: './index.html',
         title: 'J.A.T.E'
       }),
-      new GenerateSW(),
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
+      }), 
       new WebpackPwaManifest({
+        inject: true,
         name: 'J.A.T.E Editor',
         short_name: 'jate',
         description: 'My awesome editor App!',
