@@ -12,6 +12,16 @@ window.addEventListener('beforeinstallprompt', (event) => {
 butInstall.addEventListener('click', async () => {
     butInstall.style.display = 'none';
     window.deferredPrompt.prompt();
+
+    window.deferredPrompt.userChoice
+    .then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User installed');
+        } else {
+          console.log('User did not install');
+        }
+        window.deferredPrompt = null;
+      });
 });
 
 // TODO: Add an handler for the `appinstalled` event
